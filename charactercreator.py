@@ -50,8 +50,8 @@ class DisplayCharacter():
                 print("Your smarts is: ",myguy.smarts)
                 print("Your looks is: ",myguy.looks)
             
-                cursedimage = tk.PhotoImage(file=myguy.looks)
-                pic = tk.Label(root, image=cursedimage).pack()
+                #cursedimage = tk.PhotoImage(file=myguy.looks)
+                #pic = tk.Label(root, image=cursedimage).pack()
 
                 lbl = tk.Label(root, text="Your name is: "+myguy.name, font=("Arial Bold", 40)).pack()
                 lbl = tk.Label(root, text="Your power is: "+myguy.power, font=("Arial Bold", 30)).pack()
