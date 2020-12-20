@@ -41,8 +41,9 @@ class RpgCharacter():
                 self.otherpower=PowerGenerator().generatePower()
 
 class DisplayCharacter():
-        def __init__(self, root, myguy):
-
+        def rendercharacter(self, root, myguy):
+                for widget in root.winfo_children():
+                    widget.destroy()
                 print("Your name is: ",myguy.name)
                 print("Your power is: ",myguy.power)
                 print("Your strenth is: ",myguy.strength)
@@ -59,10 +60,21 @@ class DisplayCharacter():
                 lbl = tk.Label(root, text="Your strength is: "+str(myguy.strength), font=("Arial Bold", 30)).pack()
                 lbl = tk.Label(root, text="Your speed is: "+str(myguy.speed), font=("Arial Bold", 30)).pack()
                 lbl = tk.Label(root, text="Your smarts is: "+str(myguy.smarts), font=("Arial Bold", 30)).pack()
+
+        def __init__(self, root):
+                
+                container = tk.Frame(root)
+                container.pack(side="top", fill="both", expand = True)
+             
+                envbutton = tk.Button(root, text="Generate new character!!",
+                            command = lambda: self.rendercharacter(container, RpgCharacter()))
+                envbutton.pack()
+
+                
                 root.mainloop()
 
 app=tk.Tk()
-DisplayCharacter(app, RpgCharacter())
+DisplayCharacter(app)
 
 
 
